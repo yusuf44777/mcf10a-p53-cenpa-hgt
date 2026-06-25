@@ -111,10 +111,10 @@ per-cell prediction patterns despite similar aggregate F1 scores.
 
 \subsection{Discordant Cell Analysis}
 
-To characterize the nature of these prediction differences, we compared
-logistic regression on 40-dimensional PCA features against logistic regression
-trained on 64-dimensional HGT cell embeddings---an apples-to-apples comparison
-isolating representation quality from classifier architecture.
+To characterize these prediction differences, we compared logistic regression
+on 40-dimensional PCA features with logistic regression on 64-dimensional HGT
+cell embeddings. This isolates representation quality from classifier
+architecture.
 Logistic regression on HGT embeddings yields macro-F1 of 0.967, matching the
 multitask HGT (0.967) and confirming that the learned embedding accounts for
 most of the model's discriminative capacity.
