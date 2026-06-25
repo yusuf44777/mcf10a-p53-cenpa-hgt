@@ -13,16 +13,16 @@ status, CENP-A status, and joint six-condition perturbation state.
 Five-fold stratified cross-validation yields condition macro-F1 of
 $0.981 \pm 0.003$ (logistic regression), $0.978 \pm 0.005$ (MLP), and $0.923 \pm 0.006$
 (random forest); the multitask HGT reaches 0.967 on the fixed held-out split.
-Critically, silhouette-score analysis of learned cell representations reveals that
-HGT embeddings achieve a silhouette score of 0.782 for the six perturbation
-conditions---40-fold higher than raw PCA coordinates (0.020)---demonstrating that
-near-ceiling linear classification accuracy on strongly structured perturbation data
-does not reflect equivalent representation quality.
+Silhouette-score analysis of learned cell representations shows that HGT embeddings
+achieve a score of 0.782 for the six perturbation conditions, 40-fold higher than
+raw PCA coordinates (0.020), indicating that near-ceiling linear classification
+accuracy on strongly structured perturbation data does not reflect equivalent
+representation quality.
 UMAP visualization \citep{mcinnes2018umap} and confusion matrix analysis confirm
 that residual misclassification concentrates at the p53-WT/DN boundary within the
 chronic CENP-A overexpression condition.
 Label-efficiency experiments show that logistic regression reaches 0.947 macro-F1
-with only 10\% of labeled training data, highlighting the large effect sizes that
-dominate this perturbation design.
+with only 10\% of labeled training data, reflecting the large perturbation effect
+sizes in this dataset.
 All code, figures, and \LaTeX{} sources are fully reproducible from the raw H5AD file.
 \end{abstract}

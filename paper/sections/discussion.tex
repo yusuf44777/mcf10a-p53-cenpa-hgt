@@ -1,8 +1,7 @@
 \section{Discussion}
 
-The central finding of this study is that near-ceiling classification accuracy on
-a strongly structured perturbation dataset does not indicate equivalence among
-representation methods.
+Near-ceiling classification accuracy on a strongly structured perturbation dataset
+does not, by itself, distinguish between representation methods.
 Logistic regression on PCA features achieves $0.981 \pm 0.003$ macro-F1 for
 six-condition classification under five-fold cross-validation---essentially
 saturating the linearly separable component of the task.
@@ -22,17 +21,15 @@ within the chronic CENP-A overexpression condition, precisely the biologically
 intermediate state where transcriptional similarity between p53 backgrounds is
 highest.
 
-The comparison with related single-cell GNN methods is informative.
 scGNN \citep{wang2021scgnn} and MarsGT \citep{wu2024marsgt} report gains over
 linear baselines primarily in trajectory reconstruction and rare-cell detection,
-domains where the heterogeneous graph topology provides information unavailable
-to PCA.
+tasks where heterogeneous graph topology provides information unavailable to PCA.
 DeepMAPS \citep{ma2023deepmaps} constructed cell-type-specific gene regulatory
 networks from HGT, demonstrating interpretive value independent of classification
 accuracy.
 GEARS \citep{roohani2023gears} targets perturbation outcome prediction rather than
-state classification, but reinforces the principle that typed gene interaction
-graphs recover perturbation effects that linear encodings miss.
+state classification, but shows that typed gene interaction graphs recover
+combinatorial perturbation effects that linear encodings miss.
 scVI and scANVI \citep{lopez2018scvi} would likely match linear classification
 accuracy on this dataset given the large effect sizes, but their latent space
 is optimized for reconstruction and batch correction rather than
@@ -45,7 +42,7 @@ The multitask HGT jointly encodes p53 status, CENP-A status, and six-condition
 perturbation state in a single embedding, a property absent from single-task
 linear classifiers.
 
-Several directions extend this work.
+Several extensions follow naturally from these results.
 The label-efficiency analysis shows that logistic regression on PCA reaches
 near-ceiling above 30\% labeled data; graph-based neighborhood propagation
 is most valuable for subtler datasets with continuous state transitions or

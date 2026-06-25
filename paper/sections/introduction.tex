@@ -1,9 +1,8 @@
 \section{Introduction}
 
-Single-cell RNA sequencing (scRNA-seq) has transformed the study of cellular
-heterogeneity by enabling transcriptional profiling at single-cell resolution,
-making it possible to dissect perturbation responses that would be obscured by
-bulk averaging \citep{wang2021scgnn}.
+Single-cell RNA sequencing (scRNA-seq) enables transcriptional profiling at
+single-cell resolution, allowing perturbation responses to be resolved that
+would be obscured by bulk averaging \citep{wang2021scgnn}.
 Genetic perturbation designs that combine knockout or overexpression with
 single-cell readouts are now routine, yet their analysis typically relies on
 principal component analysis (PCA) followed by clustering---an approach that
@@ -57,8 +56,8 @@ ablation, and characterizes learned cell embeddings using UMAP visualization
 \citep{mcinnes2018umap}, silhouette score \citep{rousseeuw1987silhouette},
 Calinski-Harabasz index \citep{calinski1974dendrite}, and label-efficiency
 analysis.
-The central finding is that while near-ceiling linear classification accuracy
-obscures differences among supervised methods, HGT-derived embeddings achieve
-silhouette scores 40-fold higher than raw PCA coordinates, providing
-biologically interpretable representations that preserve both p53 and CENP-A
-perturbation structure simultaneously.
+The main finding is that near-ceiling linear classification accuracy masks
+substantial differences in representation quality: HGT-derived embeddings achieve
+silhouette scores 40-fold higher than raw PCA coordinates, producing
+biologically interpretable representations that jointly encode p53 and CENP-A
+perturbation structure.
