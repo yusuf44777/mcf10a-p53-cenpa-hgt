@@ -1,0 +1,14 @@
+h5py
+matplotlib
+networkx
+numpy
+pandas
+scikit-learn
+scipy
+seaborn
+statsmodels
+torch
+umap-learn
+
+# Optional for full HGT training:
+# torch-geometric

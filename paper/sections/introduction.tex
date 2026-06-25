@@ -1,0 +1,64 @@
+\section{Introduction}
+
+Single-cell RNA sequencing (scRNA-seq) has transformed the study of cellular
+heterogeneity by enabling transcriptional profiling at single-cell resolution,
+making it possible to dissect perturbation responses that would be obscured by
+bulk averaging \citep{wang2021scgnn}.
+Genetic perturbation designs that combine knockout or overexpression with
+single-cell readouts are now routine, yet their analysis typically relies on
+principal component analysis (PCA) followed by clustering---an approach that
+treats the data as a homogeneous point cloud and discards the typed relational
+structure among cells, the genes they express, and the regulatory modules
+those genes form \citep{chervov2022cellcycle}.
+In the MCF10A epithelial cell system examined here, p53 status crossed with
+three CENP-A overexpression states defines six biologically distinct perturbation
+conditions \citep{jeffery2022cenpa}.
+Because the perturbation effects are large, classical linear classifiers approach
+ceiling performance, creating conditions where differences in representation quality
+are masked by near-identical classification accuracy.
+
+Graph neural network (GNN) methods have emerged as principled alternatives for
+single-cell analysis because they can learn over non-Euclidean cell-graph
+topologies.
+scGNN demonstrated that graph attention over cell neighborhoods yields richer
+representations for trajectory inference and imputation than k-means
+\citep{wang2021scgnn}.
+DeepMAPS used a heterogeneous graph transformer to construct cell-type-specific
+gene regulatory networks from paired scRNA and ATAC data, showing that typed
+graph structure captures regulatory information invisible to matrix factorization
+\citep{ma2023deepmaps}.
+MarsGT extended this to multi-omics settings, identifying rare cell populations
+from heterogeneous graphs of cells, proteins, and chromatin accessibility nodes
+\citep{wu2024marsgt}.
+Perturbation-specific frameworks such as GEARS leverage gene interaction graphs
+to predict multi-gene perturbation outcomes, highlighting how graph structure over
+gene relationships recovers combinatorial perturbation effects that linear models
+miss \citep{roohani2023gears}.
+Probabilistic latent-variable models such as scVI provide competitive latent
+representations when large amounts of labeled data are available, but optimize
+for reconstruction and batch correction rather than perturbation-discriminative
+cell embeddings \citep{lopez2018scvi}.
+
+Heterogeneous Graph Transformers (HGT) \citep{hu2020hgt} generalize standard GNN
+message passing by assigning type-specific projection matrices to each
+(source type, edge type, destination type) triplet.
+This typed parameterization avoids the collapse problem of homogeneous methods:
+cell--cell similarity, cell--gene expression, gene--gene coexpression, and
+gene--module membership are each modeled with dedicated attention weights.
+When applied to single-cell perturbation data, this structure aligns naturally
+with the biological reality that p53 loss and CENP-A overexpression remodel
+cell neighborhoods, perturb gene coexpression modules, and alter gene-to-module
+membership simultaneously.
+
+This study presents a reproducible HGT pipeline for the MCF10A p53/CENP-A
+dataset (E-MTAB-9861), benchmarks it under five-fold stratified cross-validation
+against k-means, logistic regression, random forest, MLP, and a homogeneous GCN
+ablation, and characterizes learned cell embeddings using UMAP visualization
+\citep{mcinnes2018umap}, silhouette score \citep{rousseeuw1987silhouette},
+Calinski-Harabasz index \citep{calinski1974dendrite}, and label-efficiency
+analysis.
+The central finding is that while near-ceiling linear classification accuracy
+obscures differences among supervised methods, HGT-derived embeddings achieve
+silhouette scores 40-fold higher than raw PCA coordinates, providing
+biologically interpretable representations that preserve both p53 and CENP-A
+perturbation structure simultaneously.

@@ -1,0 +1,2 @@
+model1,model2,b,c,statistic,pvalue,exact
+logistic_pca,mlp_pca,22,13,1.8285714285714285,0.17629637444050728,False

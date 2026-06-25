@@ -1,0 +1,23 @@
+\section{Limitations}
+
+This work is computational and hypothesis-generating.
+Candidate gene rankings are based on expression deltas and graph-derived module
+summaries, not perturbational validation; they should be treated as prioritized
+candidates for follow-up experiments.
+The five-fold cross-validation standard deviations for supervised baselines are
+small ($\leq 0.005$ macro-F1), confirming result stability, but the HGT and
+homogeneous GCN results are from single training runs due to the computational
+cost of repeated full-graph training.
+Providing multi-run variance estimates for graph-learning models is recommended
+before final journal submission.
+
+The full HGT training path requires \texttt{torch-geometric}, which may not be
+installed in all environments.
+The repository separates the always-runnable preprocessing, cross-validation, and
+baseline pipeline from optional HGT training; all artifacts required for
+manuscript figures are generated in dependency order.
+External biological annotation via Ensembl REST and g:Profiler is intentionally
+decoupled from the default pipeline to avoid automatic data export to
+third-party services.
+Future versions can add curated regulatory networks from STRING, Reactome, or
+transcription-factor target databases with explicit versioning and licensing.

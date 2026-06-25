@@ -1,0 +1,19 @@
+{
+  "cenpa": {
+    "acute_oe": 0,
+    "chronic_oe": 1,
+    "control": 2
+  },
+  "condition": {
+    "p53-DN|acute_oe": 0,
+    "p53-DN|chronic_oe": 1,
+    "p53-DN|control": 2,
+    "p53-WT|acute_oe": 3,
+    "p53-WT|chronic_oe": 4,
+    "p53-WT|control": 5
+  },
+  "p53": {
+    "p53-DN": 0,
+    "p53-WT": 1
+  }
+}

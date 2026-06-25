@@ -1,0 +1,58 @@
+{
+  "CENPA_status": {
+    "acute_oe": 2797,
+    "chronic_oe": 3489,
+    "control": 2915
+  },
+  "cell_detected_gene_quantiles": [
+    3295.0,
+    5611.0,
+    6080.0,
+    6672.0,
+    8894.0
+  ],
+  "cell_library_sum_quantiles": [
+    15296.0,
+    39227.0,
+    47110.0,
+    58675.0,
+    142740.0
+  ],
+  "condition_counts": {
+    "p53-DN|acute_oe": 1538,
+    "p53-DN|chronic_oe": 1675,
+    "p53-DN|control": 1632,
+    "p53-WT|acute_oe": 1259,
+    "p53-WT|chronic_oe": 1814,
+    "p53-WT|control": 1283
+  },
+  "conditions": [
+    "p53-DN|acute_oe",
+    "p53-DN|chronic_oe",
+    "p53-DN|control",
+    "p53-WT|acute_oe",
+    "p53-WT|chronic_oe",
+    "p53-WT|control"
+  ],
+  "gene_detected_cell_quantiles": [
+    0.0,
+    0.0,
+    5.0,
+    1267.5,
+    9201.0
+  ],
+  "n_cells": 9201,
+  "n_genes": 40295,
+  "p53_status": {
+    "p53-DN": 4845,
+    "p53-WT": 4356
+  },
+  "samples": {
+    "DD0d68_10d1": 1538,
+    "DD0d69": 1632,
+    "DD10d69": 1675,
+    "pW0d68_10d1": 1259,
+    "pW0d69": 1283,
+    "pW10d69": 1814
+  }
+}

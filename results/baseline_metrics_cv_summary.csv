@@ -1,0 +1,12 @@
+,,accuracy,accuracy,balanced_accuracy,balanced_accuracy,macro_f1,macro_f1
+,,mean,std,mean,std,mean,std
+model,target,,,,,,
+logistic_pca,cenpa,0.9937,0.0015,0.9934,0.0015,0.9934,0.0016
+logistic_pca,condition,0.983,0.003,0.9816,0.0034,0.9813,0.0032
+logistic_pca,p53,0.9859,0.0022,0.9859,0.0021,0.9858,0.0022
+mlp_pca,cenpa,0.9916,0.0025,0.9912,0.0027,0.9913,0.0026
+mlp_pca,condition,0.9802,0.0045,0.9784,0.0047,0.9784,0.0046
+mlp_pca,p53,0.9859,0.0025,0.9859,0.0024,0.9858,0.0025
+random_forest_pca,cenpa,0.9561,0.0049,0.9534,0.0054,0.9545,0.0053
+random_forest_pca,condition,0.9282,0.0048,0.9207,0.0057,0.9227,0.0055
+random_forest_pca,p53,0.9662,0.0041,0.9654,0.0043,0.966,0.0042

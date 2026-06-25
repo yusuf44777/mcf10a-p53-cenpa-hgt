@@ -1,0 +1,62 @@
+\section{Discussion}
+
+The central finding of this study is that near-ceiling classification accuracy on
+a strongly structured perturbation dataset does not indicate equivalence among
+representation methods.
+Logistic regression on PCA features achieves $0.981 \pm 0.003$ macro-F1 for
+six-condition classification under five-fold cross-validation---essentially
+saturating the linearly separable component of the task.
+This ceiling arises because the MCF10A p53/CENP-A perturbations produce large,
+population-scale transcriptional shifts: even with only 10\% of training labels,
+logistic regression reaches 0.947 macro-F1.
+In such strongly structured settings, raw classification accuracy is a poor
+discriminator between representation methods.
+The embedding quality analysis provides a more sensitive view: HGT-derived cell
+representations achieve a silhouette score of 0.782---40-fold higher than PCA
+coordinates (0.020) and 5.5-fold higher than UMAP (0.142)---indicating that the
+typed graph structure organizes cells into substantially tighter condition-specific
+clusters relative to inter-condition distances.
+Residual classification errors, visible in the normalized confusion matrix
+(Figure~\ref{fig:confusion-logistic}), concentrate at the p53-WT/DN boundary
+within the chronic CENP-A overexpression condition, precisely the biologically
+intermediate state where transcriptional similarity between p53 backgrounds is
+highest.
+
+The comparison with related single-cell GNN methods is informative.
+scGNN \citep{wang2021scgnn} and MarsGT \citep{wu2024marsgt} report gains over
+linear baselines primarily in trajectory reconstruction and rare-cell detection,
+domains where the heterogeneous graph topology provides information unavailable
+to PCA.
+DeepMAPS \citep{ma2023deepmaps} constructed cell-type-specific gene regulatory
+networks from HGT, demonstrating interpretive value independent of classification
+accuracy.
+GEARS \citep{roohani2023gears} targets perturbation outcome prediction rather than
+state classification, but reinforces the principle that typed gene interaction
+graphs recover perturbation effects that linear encodings miss.
+scVI and scANVI \citep{lopez2018scvi} would likely match linear classification
+accuracy on this dataset given the large effect sizes, but their latent space
+is optimized for reconstruction and batch correction rather than
+condition-discriminative embedding.
+McNemar's test confirms that the per-cell prediction patterns of logistic
+regression and multitask HGT differ significantly on the held-out test split
+($p<0.05$), even at comparable aggregate F1 scores, indicating that the two
+models make different types of errors.
+The multitask HGT jointly encodes p53 status, CENP-A status, and six-condition
+perturbation state in a single embedding, a property absent from single-task
+linear classifiers.
+
+Several directions extend this work.
+The label-efficiency analysis shows that logistic regression on PCA reaches
+near-ceiling above 30\% labeled data; graph-based neighborhood propagation
+is most valuable for subtler datasets with continuous state transitions or
+sparse label regimes.
+The current cell-neighborhood graph uses a fixed $k$-NN topology; adaptive or
+learned graph construction could better capture heterogeneous trajectory
+structures \citep{wang2021scgnn}.
+Gene modules are derived by k-means on expression profiles; replacing them with
+curated pathway graphs from STRING or Reactome would improve biological
+interpretability while preserving the typed graph structure.
+Finally, the external enrichment analysis implicates translation, stress-response,
+epithelial-keratin, and chromatin programs in the perturbation signature;
+causal validation requires follow-up perturbational experiments beyond the
+scope of this computational study.

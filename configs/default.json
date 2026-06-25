@@ -1,0 +1,51 @@
+{
+  "seed": 42,
+  "paths": {
+    "h5ad": "dataset/EMTAB9861_Human_MCF10-2a_CENPAandTP53perturb_Y2021_9201Cells_FromAuthors_Counts_Jeffery_Almouzni.h5ad",
+    "annotation_csv": "dataset/cell_annotation.csv",
+    "results_dir": "results",
+    "figures_dir": "figures"
+  },
+  "preprocess": {
+    "target_sum": 10000.0,
+    "min_cells_per_gene": 10,
+    "n_hvg": 2000,
+    "n_pca": 40,
+    "always_keep_genes": {
+      "TP53": "ENSG00000141510",
+      "CENPA": "ENSG00000115163"
+    },
+    "umap_n_neighbors": 15,
+    "umap_min_dist": 0.1
+  },
+  "graph": {
+    "top_expression_edges_per_cell": 40,
+    "cell_knn": 15,
+    "gene_knn": 8,
+    "n_gene_modules": 24
+  },
+  "baselines": {
+    "test_size": 0.25,
+    "random_forest_trees": 250,
+    "mlp_hidden_layer_sizes": [96, 48],
+    "max_iter": 350
+  },
+  "hgt": {
+    "hidden_dim": 64,
+    "heads": 4,
+    "layers": 2,
+    "dropout": 0.20,
+    "epochs": 80,
+    "learning_rate": 0.003,
+    "weight_decay": 0.0001,
+    "loss_weights": {
+      "p53": 1.0,
+      "cenpa": 1.0,
+      "condition": 1.25
+    }
+  },
+  "cv": {
+    "n_folds": 5,
+    "label_fractions": [0.10, 0.20, 0.30, 0.40, 0.50, 0.60, 0.70, 0.80, 0.90, 1.00]
+  }
+}

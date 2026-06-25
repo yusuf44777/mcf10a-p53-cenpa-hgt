@@ -1,0 +1,19 @@
+{
+  "edge_types": [
+    "cell__expresses__gene",
+    "gene__expressed_by__cell",
+    "cell__near__cell",
+    "gene__coexpressed__gene",
+    "gene__in_module__module",
+    "module__contains__gene"
+  ],
+  "n_cells": 9201,
+  "n_genes": 2001,
+  "n_modules": 24,
+  "node_types": [
+    "cell",
+    "gene",
+    "module"
+  ],
+  "notes": "Reciprocal edges are included so HGT message passing can update all node types."
+}

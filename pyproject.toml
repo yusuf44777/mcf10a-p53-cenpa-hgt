@@ -1,0 +1,28 @@
+[project]
+name = "mcf10a-hgt-p53-cenpa"
+version = "0.1.0"
+description = "Heterogeneous graph transformer study of p53 and CENP-A perturbation states in MCF10A single-cell profiles."
+requires-python = ">=3.10"
+dependencies = [
+  "h5py",
+  "matplotlib",
+  "networkx",
+  "numpy",
+  "pandas",
+  "scikit-learn",
+  "scipy",
+  "seaborn",
+  "torch",
+]
+
+[project.optional-dependencies]
+hgt = [
+  "torch-geometric",
+]
+dev = [
+  "pytest",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

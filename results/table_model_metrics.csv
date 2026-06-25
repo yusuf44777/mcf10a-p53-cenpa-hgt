@@ -1,0 +1,12 @@
+accuracy,balanced_accuracy,macro_f1,model,target,ari,nmi
+0.27,0.263,0.265,kmeans_hvg,condition,0.049093941528969794,0.06432738168499906
+0.278,0.269,0.242,pca_kmeans,condition,0.051167431369397366,0.06237902839044723
+0.983,0.984,0.983,logistic_pca,p53,,
+0.964,0.963,0.964,random_forest_pca,p53,,
+0.986,0.986,0.986,mlp_pca,p53,,
+0.994,0.993,0.994,logistic_pca,cenpa,,
+0.953,0.95,0.951,random_forest_pca,cenpa,,
+0.988,0.987,0.987,mlp_pca,cenpa,,
+0.982,0.98,0.98,logistic_pca,condition,,
+0.924,0.916,0.918,random_forest_pca,condition,,
+0.978,0.975,0.976,mlp_pca,condition,,

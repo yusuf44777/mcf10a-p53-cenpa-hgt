@@ -1,0 +1,4 @@
+embedding,silhouette,calinski_harabasz
+PCA (40 PCs),0.0197,334.8
+UMAP (2D),0.1422,834.9
+HGT embedding (64D),0.7817,31471.0

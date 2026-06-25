@@ -1,0 +1,5 @@
+{
+  "hgt_note": "Run python3 -m src.train_hgt --config configs/default.json after installing torch-geometric.",
+  "hgt_training": "not_run",
+  "pipeline": "complete"
+}

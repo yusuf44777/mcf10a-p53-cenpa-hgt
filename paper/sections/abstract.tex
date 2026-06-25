@@ -1,0 +1,28 @@
+\begin{abstract}
+Single-cell RNA sequencing enables dissection of transcriptional heterogeneity at
+per-cell resolution, yet perturbation studies commonly rely on principal component
+analysis and linear classifiers that collapse the typed relational structure among
+cells, genes, and regulatory modules.
+We present a Heterogeneous Graph Transformer (HGT) framework for perturbation-aware
+analysis of 9,201 MCF10A single-cell expression profiles across six joint p53/CENP-A
+perturbation conditions (ArrayExpress E-MTAB-9861; \citep{jeffery2022cenpa}).
+Our pipeline constructs a three-node-type heterogeneous graph linking cells via
+k-nearest-neighbor neighborhoods, genes via coexpression, and both to
+expression-derived gene modules, then applies a multitask HGT to classify p53
+status, CENP-A status, and joint six-condition perturbation state.
+Five-fold stratified cross-validation yields condition macro-F1 of
+$0.981 \pm 0.003$ (logistic regression), $0.978 \pm 0.005$ (MLP), and $0.923 \pm 0.006$
+(random forest); the multitask HGT reaches 0.967 on the fixed held-out split.
+Critically, silhouette-score analysis of learned cell representations reveals that
+HGT embeddings achieve a silhouette score of 0.782 for the six perturbation
+conditions---40-fold higher than raw PCA coordinates (0.020)---demonstrating that
+near-ceiling linear classification accuracy on strongly structured perturbation data
+does not reflect equivalent representation quality.
+UMAP visualization \citep{mcinnes2018umap} and confusion matrix analysis confirm
+that residual misclassification concentrates at the p53-WT/DN boundary within the
+chronic CENP-A overexpression condition.
+Label-efficiency experiments show that logistic regression reaches 0.947 macro-F1
+with only 10\% of labeled training data, highlighting the large effect sizes that
+dominate this perturbation design.
+All code, figures, and \LaTeX{} sources are fully reproducible from the raw H5AD file.
+\end{abstract}

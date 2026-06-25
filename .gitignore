@@ -1,0 +1,28 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tectonic-cache/
+
+# Local source data are too large for GitHub. Keep them in the workspace or
+# document their public download location instead of committing them.
+dataset/
+2208.05229v1.pdf
+
+# Large generated artifacts can be regenerated from the dataset.
+results/*.npz
+results/*.npy
+results/*.pt
+
+# LaTeX build outputs.
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.fdb_latexmk
+paper/*.fls
+paper/*.log
+paper/*.out
+paper/*.pdf
+paper/*.synctex.gz

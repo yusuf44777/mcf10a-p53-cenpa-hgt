@@ -1,0 +1,38 @@
+{
+  "claude_code_prompt": "docs/claude_code_review_prompt.md",
+  "external_annotation": {
+    "annotated_candidates": "results/candidate_gene_scores_annotated.csv",
+    "annotation_table": "results/gene_annotations.tsv",
+    "command": "python3 -m src.external_annotation --config configs/default.json --top-n 120",
+    "enrichment_table": "results/candidate_enrichment_gprofiler.csv",
+    "status": "complete"
+  },
+  "homogeneous_gnn": {
+    "metrics": "results/homogeneous_gnn_metrics.csv",
+    "model": "results/homogeneous_gnn_model.pt",
+    "status": "complete"
+  },
+  "hgt": {
+    "embedding": "results/hgt_cell_embedding.npy",
+    "metrics": "results/hgt_metrics.csv",
+    "model": "results/hgt_model.pt",
+    "status": "complete",
+    "training_history": "results/hgt_training_history.csv"
+  },
+  "latex": {
+    "compiler": "tectonic 0.16.9",
+    "pdf": "paper/main.pdf",
+    "status": "complete"
+  },
+  "post_hgt_figures": [
+    "figures/model_comparison_with_hgt.png",
+    "figures/hgt_embedding_landscape.png",
+    "figures/hgt_training_curve.png",
+    "figures/candidate_gene_scores_annotated.png",
+    "figures/candidate_enrichment_terms.png"
+  ],
+  "torch_geometric": {
+    "status": "installed",
+    "version": "2.8.0"
+  }
+}

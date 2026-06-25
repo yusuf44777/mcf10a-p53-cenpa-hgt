@@ -1,0 +1,42 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{authblk}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{subcaption}
+
+\title{Heterogeneous Graph Transformer Modeling of p53 and CENP-A Perturbation States in MCF10A Single-Cell Gene Expression Profiles}
+
+\author[1]{Mahir Yusuf Açan}
+\affil[1]{Independent computational biology study}
+\date{May 20, 2026}
+
+\begin{document}
+\maketitle
+
+\input{sections/abstract}
+\input{sections/introduction}
+\input{sections/methods}
+\input{sections/results}
+\input{sections/discussion}
+\input{sections/limitations}
+
+\section*{Data and Code Availability}
+All code needed to regenerate the preprocessing artifacts, baseline metrics, graph files, figures, and optional HGT training outputs is included in this workspace. The primary data files are expected under \texttt{dataset/}. The main commands are:
+
+\begin{quote}
+\small
+\begin{verbatim}
+python3 -m src.run_pipeline --config configs/default.json
+python3 -m src.train_hgt --config configs/default.json
+\end{verbatim}
+\end{quote}
+
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+
+\end{document}

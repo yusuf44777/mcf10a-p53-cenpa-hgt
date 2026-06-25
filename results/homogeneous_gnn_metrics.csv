@@ -1,0 +1,2 @@
+model,target,accuracy,balanced_accuracy,macro_f1
+homogeneous_gcn_cell_knn,condition,0.9156888309430682,0.9081743905547123,0.9084197591786234
