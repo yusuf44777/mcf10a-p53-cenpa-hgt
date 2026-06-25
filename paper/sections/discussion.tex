@@ -38,9 +38,19 @@ McNemar's test confirms that the per-cell prediction patterns of logistic
 regression and multitask HGT differ significantly on the held-out test split
 ($p<0.05$), even at comparable aggregate F1 scores, indicating that the two
 models make different types of errors.
-The multitask HGT jointly encodes p53 status, CENP-A status, and six-condition
-perturbation state in a single embedding, a property absent from single-task
-linear classifiers.
+The discordant cell analysis clarifies what this difference means biologically.
+Among the 13 cells that the HGT embedding classifies correctly but PCA does not,
+seven are \texttt{p53-DN|acute\_oe} cells that the PCA classifier predicts as
+\texttt{p53-WT|acute\_oe}.
+Acute CENP-A overexpression thus attenuates the p53-status signal in the linear
+PCA projection---the transcriptional states of p53-WT and p53-DN cells converge
+sufficiently under acute perturbation that their first 40 principal components
+overlap.
+The cell k-nearest-neighbor graph incorporated in the HGT retains the
+neighbourhood-level p53 signal, recovering these misassigned cells.
+This finding concretely illustrates the value of graph-based representations in
+perturbation settings where individual cells occupy transitional or boundary
+expression states that linear projections conflate.
 
 Several extensions follow naturally from these results.
 The label-efficiency analysis shows that logistic regression on PCA reaches

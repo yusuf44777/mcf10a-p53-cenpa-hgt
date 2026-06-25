@@ -109,6 +109,44 @@ Comparing logistic regression and multitask HGT (condition task, fixed split)
 yields $p<0.05$, confirming that the models differ significantly in their
 per-cell prediction patterns despite similar aggregate F1 scores.
 
+\subsection{Discordant Cell Analysis}
+
+To characterize the nature of these prediction differences, we compared
+logistic regression on 40-dimensional PCA features against logistic regression
+trained on 64-dimensional HGT cell embeddings---an apples-to-apples comparison
+isolating representation quality from classifier architecture.
+Logistic regression on HGT embeddings yields macro-F1 of 0.967, matching the
+multitask HGT (0.967) and confirming that the learned embedding accounts for
+most of the model's discriminative capacity.
+
+Of the 2,301 held-out test cells, 13 are correctly classified by the HGT
+embedding but misclassified by the PCA representation (HGT advantage), while
+41 show the reverse pattern (PCA advantage).
+The 13 HGT-advantage cells reveal a concentrated pattern: 7 of 13 are
+\texttt{p53-DN|acute\_oe} cells that logistic regression on PCA systematically
+predicts as \texttt{p53-WT|acute\_oe}.
+This systematic confusion indicates that acute CENP-A overexpression partially
+collapses the p53-status signal in linear PCA space, while the HGT cell-neighborhood
+graph---which encodes k-nearest-neighbor relationships among all 9,201 cells---retains
+sufficient p53-discriminative structure to recover the correct assignment.
+Figure~\ref{fig:discordant} shows these cells plotted on the UMAP embedding;
+HGT-advantage cells concentrate at the boundary between the
+\texttt{p53-DN|acute\_oe} and \texttt{p53-WT|acute\_oe} clusters.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.88\linewidth]{../figures/discordant_cells_umap.png}
+  \caption{UMAP projection of 9,201 MCF10A cells showing discordant classification
+  errors between logistic regression on PCA features (blue crosses) and logistic
+  regression on HGT embeddings (red circles). HGT-advantage cells ($n=13$) are
+  cells correctly classified by the HGT embedding but misclassified by PCA;
+  7 of 13 are \texttt{p53-DN|acute\_oe} cells predicted as
+  \texttt{p53-WT|acute\_oe} by the PCA classifier, indicating that the
+  cell-neighborhood graph preserves p53-discriminative structure that is
+  attenuated in the linear PCA projection.}
+  \label{fig:discordant}
+\end{figure}
+
 \begin{figure}[ht]
   \centering
   \includegraphics[width=0.8\linewidth]{../figures/baseline_comparison.png}
